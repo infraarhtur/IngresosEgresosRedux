@@ -29,11 +29,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
       filter(auth => auth.user != null)
     )
       .subscribe(({ user }) => {
-        console.log(user);
+        // console.log(user);
         this.ingresosSubs= this.ingresoEgresoService.initIngresosEgresosListener(user.uid.toString())
           .subscribe((items:IngresoEgreso[]) => {
 
-            console.log(items);
+            // console.log(items);
             this.store.dispatch(ingresosEgresosActions.setItems({ items }))
 
           }
@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
-    this.userSubs.unsubscribe();
-    this.ingresosSubs.unsubscribe();
+    this.userSubs?.unsubscribe();
+    this.ingresosSubs?.unsubscribe();
   }
 }
