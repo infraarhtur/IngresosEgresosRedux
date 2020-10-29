@@ -34,3 +34,7 @@ import { ingresoEgresoReducer } from './ingreso-egreso.reducer';
   ]
 })
 export class IngresoEgresoModule { }
+
+
+
+
